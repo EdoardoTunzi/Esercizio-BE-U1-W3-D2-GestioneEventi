@@ -17,7 +17,7 @@ public class Evento {
     @Column (nullable = false)
     private String descrizione;
 
-    @Column (nullable = false)
+    @Enumerated(EnumType.STRING)
     private TipoEvento tipoEvento;
 
     @Column (name = "LimitePartecipanti",nullable = false)

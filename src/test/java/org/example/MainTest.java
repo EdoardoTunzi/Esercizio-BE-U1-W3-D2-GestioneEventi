@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * A simple unit test
  */
-public class EventoDAOTest
+public class MainTest
 {
     /**
      * Rigorous Test :-)
