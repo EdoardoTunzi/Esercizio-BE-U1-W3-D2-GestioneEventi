@@ -24,6 +24,7 @@ public class EventoDAO {
         save(event1);
         save(event2);
         save(event3);
+        deleteById(event1.getId());
 
         em.close();
         emf.close();
@@ -35,6 +36,17 @@ public class EventoDAO {
     public static void save(Evento e) {
         em.getTransaction().begin();
         em.persist(e);
+        em.getTransaction().commit();
+    }
+
+    public static void deleteById(Long id) {
+        em.getTransaction().begin();
+        Evento evento = em.find(Evento.class, id);
+        if (evento != null) {
+            em.remove(evento);
+        } else {
+            System.out.println("Nessun evento trovato con id: " + id);
+        }
         em.getTransaction().commit();
     }
 }
