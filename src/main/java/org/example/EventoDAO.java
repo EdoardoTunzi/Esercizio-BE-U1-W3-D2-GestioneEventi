@@ -19,7 +19,11 @@ public class EventoDAO {
 
     public static void main(String[] args) {
         Evento event1 = new Evento(LocalDate.of(2025,5, 12),"Festa di laurea", TipoEvento.PRIVATO,150);
+        Evento event2 = new Evento(LocalDate.of(2025,6, 12),"Matrimonio", TipoEvento.PRIVATO,400);
+        Evento event3 = new Evento(LocalDate.of(2025,7, 12),"Compleanno Mario", TipoEvento.PUBBLICO,40);
         save(event1);
+        save(event2);
+        save(event3);
 
         em.close();
         emf.close();
