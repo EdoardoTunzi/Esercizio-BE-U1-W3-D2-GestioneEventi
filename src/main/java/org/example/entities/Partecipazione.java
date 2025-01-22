@@ -6,11 +6,15 @@ import javax.persistence.*;
 @Table(name = "partecipazioni")
 public class Partecipazione {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
 
+    @ManyToOne
+    @JoinColumn(name = "evento_id", nullable = false)
     private Evento evento;
 
     @Enumerated(EnumType.STRING)

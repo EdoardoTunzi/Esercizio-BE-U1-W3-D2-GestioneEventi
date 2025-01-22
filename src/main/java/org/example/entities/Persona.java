@@ -6,23 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table (name = "persone")
+@Table(name = "persone")
 public class Persona {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(nullable = false)
     private String nome;
+
     @Column(nullable = false)
     private String cognome;
+
     @Column(nullable = false)
     private String email;
+
     @Column(nullable = false)
     private LocalDate dataDiNascita;
+
     @Enumerated(EnumType.STRING)
     private Sesso sesso;
-
+    //una persona può partecipare a più eventi tramite partecipazioni ma ogni partecipazione è associata a una persona.
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     private List<Partecipazione> partecipazioni = new ArrayList<Partecipazione>();
 
 
