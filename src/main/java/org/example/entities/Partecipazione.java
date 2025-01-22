@@ -9,11 +9,11 @@ public class Partecipazione {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
+    @ManyToOne //ogni partecipazione è collegata a una sola persona
     @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
 
-    @ManyToOne
+    @ManyToOne //ogni partecipazione è collegata a un solo evento
     @JoinColumn(name = "evento_id", nullable = false)
     private Evento evento;
 
