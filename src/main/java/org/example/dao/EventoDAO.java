@@ -2,6 +2,7 @@ package org.example.dao;
 
 import org.example.entities.Concerto;
 import org.example.entities.Evento;
+import org.example.entities.PartitaDiCalcio;
 import org.example.enumerations.TipoConcerto;
 
 import javax.persistence.EntityManager;
@@ -48,6 +49,16 @@ public class EventoDAO {
     public List<Concerto> getConcertiPerGenere (TipoConcerto tipoConcerto) {
         Query q = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :tipoConcerto");
         q.setParameter("tipoConcerto", tipoConcerto);
+        return q.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteInCasa() {
+        Query q = em.createQuery("PartitaDiCalcio.getPartiteVinteInCasa");
+        return q.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta() {
+        Query q = em.createQuery("PartitaDiCalcio.getPartiteVinteInTrasferta");
         return q.getResultList();
     }
 }

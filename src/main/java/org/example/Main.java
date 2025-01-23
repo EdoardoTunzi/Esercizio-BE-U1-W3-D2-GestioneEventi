@@ -45,12 +45,16 @@ public class Main {
        /* persona1.getPartecipazioni().add(part1);
         event1.getPartecipazioni().add(part1);*/
 
-       /* personaDAO.save(persona1);*/
+        /* personaDAO.save(persona1);*/
 
         /*partecipazioneDAO.save(part1);*/
 
-       List<Concerto> concertiInStreaming = eventodao.getConcertInStreaming(true);
-       concertiInStreaming.forEach(System.out::println);
+        List<Concerto> concertiInStreaming = eventodao.getConcertInStreaming(true);
+        concertiInStreaming.forEach(System.out::println);
+        List<Concerto> concertiROck = eventodao.getConcertiPerGenere(TipoConcerto.ROCK);
+        concertiInStreaming.forEach(System.out::println);
+
+
         em.close();
         emf.close();
     }
