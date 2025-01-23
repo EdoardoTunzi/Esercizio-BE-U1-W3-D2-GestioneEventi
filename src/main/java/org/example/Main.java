@@ -36,11 +36,17 @@ public class Main {
         Evento event1 = new Evento("Festa di Laurea Davide", LocalDate.of(2025, 5, 13), "festa per celebrare", TipoEvento.PRIVATO, 45, salaRicevimenti, new ArrayList<>());
         Partecipazione part1 = new Partecipazione(persona1, event1, Stato.CONFERMATA);*/
         //Concerto conc1 = new Concerto("The Wall - Live",LocalDate.of(2025,12,02),"Roger Waters Live in Rome",TipoEvento.PUBBLICO,4000,locationDAO.getById(1),new ArrayList<Partecipazione>(), TipoConcerto.ROCK,true);
+        //PartitaDiCalcio part1 = new PartitaDiCalcio("Roma-Inter",LocalDate.of(2025,1,2), "Partita amichevole", TipoEvento.PUBBLICO, 7000, locationDAO.getById(1),new ArrayList<Partecipazione>(),"Roma","Inter","Roma",3,1);
+        //PartitaDiCalcio part2 = new PartitaDiCalcio("Juventus-Inter",LocalDate.of(2025,1,3), "Partita amichevole", TipoEvento.PUBBLICO, 7000, locationDAO.getById(1),new ArrayList<Partecipazione>(),"Juventus","Inter","Inter",1,3);
+        //PartitaDiCalcio part3 = new PartitaDiCalcio("Milan-Inter",LocalDate.of(2025,1,4), "Partita amichevole", TipoEvento.PUBBLICO, 7000, locationDAO.getById(1),new ArrayList<Partecipazione>(),"Milan","Inter","Milan",4,1);
 
 //-------------------------- utilizzo oggetti
        /* locationDAO.save(salaRicevimenti);
         eventodao.save(event1);*/
         //eventodao.save(conc1);
+        /*eventodao.save(part1);
+        eventodao.save(part2);
+        eventodao.save(part3);*/
 
        /* persona1.getPartecipazioni().add(part1);
         event1.getPartecipazioni().add(part1);*/
@@ -49,14 +55,20 @@ public class Main {
 
         /*partecipazioneDAO.save(part1);*/
 
-        List<Concerto> concertiInStreaming = eventodao.getConcertInStreaming(true);
+        /*List<Concerto> concertiInStreaming = eventodao.getConcertInStreaming(true);
         concertiInStreaming.forEach(System.out::println);
         List<Concerto> concertiROck = eventodao.getConcertiPerGenere(TipoConcerto.ROCK);
-        concertiInStreaming.forEach(System.out::println);
+        concertiInStreaming.forEach(System.out::println);*/
+
+        List<PartitaDiCalcio> partiteVinteInCasa = eventodao.getPartiteVinteInCasa();
+        partiteVinteInCasa.forEach(System.out::println);
+
+        List<PartitaDiCalcio> partiteVinteInTrasferta = eventodao.getPartiteVinteInTrasferta();
+        partiteVinteInTrasferta.forEach(System.out::println);
 
 
-        em.close();
-        emf.close();
+        /*em.close();
+        emf.close();*/
     }
 
 }

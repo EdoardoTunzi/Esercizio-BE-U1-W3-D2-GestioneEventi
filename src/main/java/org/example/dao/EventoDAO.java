@@ -53,12 +53,12 @@ public class EventoDAO {
     }
 
     public List<PartitaDiCalcio> getPartiteVinteInCasa() {
-        Query q = em.createQuery("PartitaDiCalcio.getPartiteVinteInCasa");
+        Query q = em.createNamedQuery("PartitaDiCalcio.getPartiteVinteInCasa");
         return q.getResultList();
     }
 
     public List<PartitaDiCalcio> getPartiteVinteInTrasferta() {
-        Query q = em.createQuery("PartitaDiCalcio.getPartiteVinteInTrasferta");
+        Query q = em.createNamedQuery("PartitaDiCalcio.getPartiteVinteInTrasferta");
         return q.getResultList();
     }
 }

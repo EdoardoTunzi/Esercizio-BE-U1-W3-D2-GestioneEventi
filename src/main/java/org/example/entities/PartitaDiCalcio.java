@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "PartitaDiCalcio.getPartiteVinteInCasa",query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa")
-@NamedQuery(name = "PartitaDiCalcio.getPartiteVinteInTrasferta",query = "SELECT p FROM PartitaDiCalcio p WHERE p.golSquadraOspite > p.golSquadraDiCasa")
+@NamedQuery(name = "PartitaDiCalcio.getPartiteVinteInCasa", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa")
+@NamedQuery(name = "PartitaDiCalcio.getPartiteVinteInTrasferta", query = "SELECT p FROM PartitaDiCalcio p WHERE p.golSquadraOspite > p.golSquadraDiCasa")
 public class PartitaDiCalcio extends Evento {
 
     private String squadraDiCasa;
