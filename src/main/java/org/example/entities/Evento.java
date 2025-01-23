@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "eventi")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED) //Evento dovrebbe essere abstract però
 public class Evento {
 
     @Id

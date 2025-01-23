@@ -4,10 +4,12 @@ import org.example.enumerations.TipoEvento;
 
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "partite_di_calcio")
 @NamedQuery(name = "PartitaDiCalcio.getPartiteVinteInCasa", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa")
 @NamedQuery(name = "PartitaDiCalcio.getPartiteVinteInTrasferta", query = "SELECT p FROM PartitaDiCalcio p WHERE p.golSquadraOspite > p.golSquadraDiCasa")
 public class PartitaDiCalcio extends Evento {

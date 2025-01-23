@@ -6,10 +6,12 @@ import org.example.enumerations.TipoEvento;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "concerti")
 public class Concerto extends Evento{
 
     @Enumerated(EnumType.STRING)
