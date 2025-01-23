@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import org.example.enumerations.Stato;
+
 import javax.persistence.*;
 
 @Entity

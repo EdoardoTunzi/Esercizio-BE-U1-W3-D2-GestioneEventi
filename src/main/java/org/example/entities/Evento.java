@@ -1,12 +1,14 @@
 package org.example.entities;
 
+import org.example.enumerations.TipoEvento;
+
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "eventi")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Evento {
 
     @Id
@@ -28,12 +30,12 @@ public class Evento {
     @Column(name = "LimitePartecipanti", nullable = false)
     private int numeroMassimoPartecipanti;
 
-    @ManyToOne //evento si svolge una location ma la location può ospitare più eventi
+    @ManyToOne //evento si svolge una location ma la location può ospitare più eventi, UNIDIREZIONALE location non ha eventi negli attributi.
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL) //un evento può avere molte partecipazioni, partecipazione è legata a un evento
-    private List<Partecipazione> partecipazioni = new ArrayList<Partecipazione>();
+    private List<Partecipazione> partecipazioni;
 
     public Evento() {
     }

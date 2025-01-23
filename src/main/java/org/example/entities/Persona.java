@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import org.example.enumerations.Sesso;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,19 +31,19 @@ public class Persona {
     private Sesso sesso;
     //una persona può partecipare a più eventi tramite partecipazioni ma ogni partecipazione è associata a una persona.
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
-    private List<Partecipazione> partecipazioni = new ArrayList<Partecipazione>();
+    private List<Partecipazione> partecipazioni;
 
 
     public Persona() {
     }
 
-    public Persona(String nome, String cognome, String email, LocalDate dataDiNascita, Sesso sesso, List<Partecipazione> partecipazioni) {
+    public Persona(String nome, String cognome, String email, LocalDate dataDiNascita, Sesso sesso) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.dataDiNascita = dataDiNascita;
         this.sesso = sesso;
-        this.partecipazioni = partecipazioni;
+        this.partecipazioni = new ArrayList<Partecipazione>();
     }
 
     public long getId() {

@@ -1,8 +1,12 @@
 package org.example.dao;
 
+import org.example.entities.Concerto;
 import org.example.entities.Evento;
+import org.example.enumerations.TipoConcerto;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
 
 public class EventoDAO {
 
@@ -33,5 +37,17 @@ public class EventoDAO {
         em.remove(e);
         //gli dico di eseguire con commit
         em.getTransaction().commit();
+    }
+
+    public List<Concerto> getConcertInStreaming(boolean bool) {
+        Query q = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :bool");
+        q.setParameter("bool", bool);
+        return q.getResultList();
+    }
+
+    public List<Concerto> getConcertiPerGenere (TipoConcerto tipoConcerto) {
+        Query q = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :tipoConcerto");
+        q.setParameter("tipoConcerto", tipoConcerto);
+        return q.getResultList();
     }
 }
